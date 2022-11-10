@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="homepage_custom" name="My Custom Home Page">
+        <t t-call="website.layout">
+            <div class="container my_styles">
+                <h2>CUSTOM HOME PAGE</h2>
+                <p>To create this custom homepage:</p>
+                <ul>
+                    <li>
+                        Delete the default homepage created by Website module
+                        <p>[Wesite]->[Pages]-></p>
+                    </li>
+                    <li>
+                        Create the new  page within the Website module linking it with ur teamplate[homepage_custom] name[My Custom Home Page]
+                        <p>Remember at creating the page, to set the ViewURL to "/" to indicate that is the home View</p>
+                        <p>Rember to check the "isPublished" option</p>
+                    </li>
+                    <p>You can after manually edit manage the pages in the front of the websitee module, and you also can set to HomePage the new created page = to set the ViewURL to "/"</p>
+                </ul>
+            </div>
+        </t>
+    </template>
+
+</odoo>

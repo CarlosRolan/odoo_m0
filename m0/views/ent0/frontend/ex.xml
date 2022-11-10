@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="ex" name="EXAMPLE with users">
+        <t t-call="website.layout">
+
+
+            <div class="container">
+                <form action="/ex_update" method="POST" enctype="multipart/form-data">
+                    <!-- [IMPORTANT] NEEDED FOR THE TOKEN - BETTER TO BE HIDDEN (OBVIUS) -->
+                    <!-- ALL IS PREDEFINED IN ODOO -->
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                    <input type="hidden" name="id" t-att-value="user.id" />
+
+
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <label for="name" class="col-sn-12 col-form-label">Name</label>
+                            <input type="text" class="form-control" name="name" t-att-value="user.name" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+
+                        <div class="col-sn-10">
+                            <label for="file" class="col-sn-12 col-form-label">Choose a new image</label>
+                            <input type="file" name="image_1920" accept="image,application/png" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+                <img t-attf-src="data:image/jpg;base64,{{ user.image_1920 }}" style="align:center; width:85px;height:85px;" alt="NO IMG SET" />
+
+
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

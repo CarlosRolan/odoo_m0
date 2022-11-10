@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="action_view_m0_ent0" model="ir.actions.act_window">
+            <field name="name">action.view.m0.ent0</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">m0.ent0</field>
+            <!-- IN THE ACTION FIELD [view_mode= tree, form, kanban] -->
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Entities of model[ent0]
+                </p>
+                <p>
+                    Click Add new record
+                </p>
+            </field>
+        </record>
+
+        <!-- THIS ACTION CALLS A DIRECTLY A FUNCTION FROM THE MODEL -->
+        <record id="action_add_sample_m0_ent0" model="ir.actions.server">
+            <field name="name">action.add.sample.m0.ent0</field>
+            <field name="model_id" ref="model_m0_ent0" />
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <!-- [IMPORTANT] REMEMBER THE "ACTION = " -->
+            <field name="code">action = model.f_create()</field>
+        </record>
+
+        <record id="action_generate_sample_m0_ent0" model="ir.actions.act_url">
+            <field name="name">action.generate.sample.m0.ent0</field>
+            <field name="url">/get_all_ent0</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

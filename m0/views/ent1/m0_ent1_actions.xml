@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_view_m0_ent1" model="ir.actions.act_window">
+            <field name="name">action.view.m0.ent1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">m0.ent1</field>
+            <!-- IN THE ACTION FIELD [view_mode= tree, form, kanban] -->
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Entities of model[ent1]
+                </p>
+                <p>
+                    Click Add new record
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

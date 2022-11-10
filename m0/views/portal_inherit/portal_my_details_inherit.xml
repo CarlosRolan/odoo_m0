@@ -1,0 +1,22 @@
+<odoo>
+    <template id="portal_my_details_inherit" inherit_id="portal.portal_my_details" name="Account Inherit Website">
+
+
+        <xpath expr="//label[@for='name']" position="replace">
+            <label class="col-form-label" for="name">I AM THE NEW NAME</label>
+        </xpath>
+
+        <!-- TODO como se hace-->
+        <!-- THIS XPATH EXTENSION IS LINKED WITH THE INHERITED NEW FIELD FROM THE MODEL CUSTOMER_PORTAL_INHERIT -->
+        <xpath expr="//select[@name='country_id']/.." position="after">
+
+            <div t-attf-class="form-group col-xl-6">
+                <label class="col-form-label">Inherited input (AGE)</label>
+                <input type="text" name="age portal.age"  />
+            </div>
+
+        </xpath>
+    </template>
+
+
+</odoo>

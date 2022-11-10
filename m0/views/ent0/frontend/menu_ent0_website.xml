@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- [IMPORTANT] NEED TO ADD WEBSITE TO DE DEPENDS IN THE MANIFES -->
+    <record id="menu_ent0_website" model="website.menu">
+        <field name="name">Ent0</field>
+        <field name="sequence" type="int">10</field>
+    </record>
+
+    <record id="menu_ent0_display_website" model="website.menu">
+        <field name="name">Display</field>
+        <field name="url">/ent0_display</field>
+        <field name="parent_id" ref="menu_ent0_website" />
+        <field name="sequence" type="int">50</field>
+    </record>
+
+    <record id="menu_ent0_create_website" model="website.menu">
+        <field name="name">Create new entry of Ent0</field>
+        <field name="url">/ent0_create</field>
+        <field name="parent_id" ref="menu_ent0_website" />
+        <field name="sequence" type="int">50</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="REPORT OF ENTITY [type=0]"
+            id="m0.ent0"
+            model="m0.ent0"
+            report_type="qweb-pdf"
+            name="m0.report_ent0_card"
+            file="m0.report_ent0_card"
+            attachment_use="True"/>
+    </data>
+</odoo>

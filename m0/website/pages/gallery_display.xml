@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="gallery_custom" name="Gallery">
+        <t t-call="website.layout">
+            <div>
+                <t t-foreach="collection" t-as="work">
+                    <img t-attf-src="data:image/jpg;base64,{{ work.image }}" style="align:center; width:85px;height:85px;" alt="NO IMG SET" />
+                </t>
+            </div>
+
+        </t>
+
+    </template>
+
+
+</odoo>

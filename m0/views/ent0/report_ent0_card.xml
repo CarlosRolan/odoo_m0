@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <template id="report_ent0_card">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>TITLE OF THE REPORT ENTITY[type=0]</h2>
+                            <p>
+                                CUSTOMER
+                                <span t-field="o.customer.name"></span>
+                            </p>
+                            <p>
+                                NAME OF THE ENTITY
+                                <span t-field="o.name"></span>
+                            </p>
+                            <p>
+                                TYPE
+                                <span t-field="o.type"></span>
+                            </p>
+                            <p>
+                                DATE
+                                <span t-field="o.date" t-options="{'format': 'dd/MM/yyyy'}"></span>
+                            </p>
+                            <p>
+                                CHECKED
+                                <span t-field="o.bool"></span>
+                            </p>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

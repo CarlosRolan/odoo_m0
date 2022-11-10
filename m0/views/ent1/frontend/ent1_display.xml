@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="ent1_display" name="Ent1 DISPLAY">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Entities [Ent1]</h1>
+
+                <table border="1" width="800">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Bool White</th>
+                            <th>Bool Black</th>
+                        </tr>
+                    </thead>
+                    <!-- "entities1" is the toret of the controller -->
+                    <t t-foreach="ent1_all" t-as="iterator_ent1">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <t t-esc="iterator_ent1.name" />
+                                </td>
+                                <td>
+                                    <t t-esc="iterator_ent1.bool_white" />
+                                </td>
+                                <td>
+                                    <t t-esc="iterator_ent1.bool_black" />
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </t>
+                </table>
+            </div>
+        </t>
+
+    </template>
+
+</odoo>

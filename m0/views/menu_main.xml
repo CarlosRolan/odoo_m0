@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <!-- DASHBOARD-MENU -->
+        <menuitem id="menu_m0_root" name="M0: DATABASE" sequence="0" />
+
+        <!-- ENT0-MENU -->
+        <menuitem id="menu_m0_ent0" name="ENT0" parent="menu_m0_root" sequence="0" />
+        <menuitem id="menu_m0_ent0_main" name="Home" parent="menu_m0_ent0" sequence="0" action="action_view_m0_ent0" />
+        <menuitem id="menu_m0_ent0_op" name="Operations" parent="menu_m0_ent0" sequence="10" />
+        <menuitem id="menu_m0_ent0_op_add_sample" name="Add Sample Record" parent="menu_m0_ent0_op" sequence="0" action="action_add_sample_m0_ent0" />
+        <menuitem id="menu_m0_ent0_generate_json" name="Generate Json" parent="menu_m0_ent0_op" sequence="0" action="action_generate_sample_m0_ent0" />
+
+        <!-- ENT1-MENU -->
+        <menuitem id="menu_m0_ent1" name="ENT1" parent="menu_m0_root" sequence="0"  />
+        <menuitem id="menu_m0_ent1_main" name="Home" parent="menu_m0_ent1" sequence="0" action="action_view_m0_ent1" />
+
+
+        <!-- GALLERY-MENU -->
+        <menuitem id="menu_m0_gallery" name="GALLERIES" parent="menu_m0_root" sequence="10"/>
+        <menuitem id="menu_m0_gallery_main" name="Home" parent="menu_m0_gallery" sequence="10" action="action_view_m0_gallery" />
+
+        <!-- PHOTO-MENU -->
+        <menuitem id="menu_m0_photo" name="PHOTOS" parent="menu_m0_root" sequence="0" />
+        <menuitem id="menu_m0_photo_main" name="Home" parent="menu_m0_photo" sequence="0" action="action_view_m0_photo" />
+
+    </data>
+</odoo>

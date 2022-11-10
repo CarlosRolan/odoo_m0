@@ -1,0 +1,12 @@
+CREACION DE PLANTILLA TECNATIVA
+copier copy gh:Tecnativa/doodba-copier-template /ruta/de/proyecto
+
+TRAS EDITAR repos.yaml Y addons.yaml:
+invoke git-aggregate
+invoke img-build --pull
+
+CREAR LA BASE DE DATOS CON LA ESTRUCTURA CORRECTA
+docker-compose run --rm odoo --without-demo=true --stop-after-init --load-language=es_ES -i base (ingles)
+
+ACTUALIZAR UN MODULO
+docker-compose run --rm odoo odoo -u <nombre_modulo> --stop-after-initS

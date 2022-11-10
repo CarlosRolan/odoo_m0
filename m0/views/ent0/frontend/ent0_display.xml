@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="ent0_display" name="Ent0 DISPLAY">
+        <t t-call="website.layout">
+
+            <div class="container">
+                <!-- CAROUSEL -->
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <h1>CARROUSEL</h1>
+                    <!-- INNER -->
+                    <div class="carousel-inner">
+                        <!-- FIRST ITEM -->
+                        <div class="carousel-item active">
+                            <img class="d-block w-100 h-100" t-attf-src="data:image/jpg;base64,{{ ent0_all[0].image }}" alt="First slide" style="align:center; " />
+                        </div>
+                        <!-- ITEMS -->
+                        <t t-foreach="ent0_all" t-as="iterator_ent0">
+                            <div class="carousel-item w-100 h-100">
+                                <img class="d-block w-100 h-100" t-attf-src="data:image/jpg;base64,{{ iterator_ent0.image }}" style="align:center; " />
+                            </div>
+                        </t>
+                    </div>
+                </div>
+
+
+                <h1>Entities [Ent0]</h1>
+
+                <table border="1" width="800">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Bool</th>
+                            <!-- <th>Yes / No</th> -->
+                            <th>Image</th>
+                            <th>Details</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <!-- "entities0" is the return of the controller -->
+                    <t t-foreach="ent0_all" t-as="iterator_ent0">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <t t-esc="iterator_ent0.name" />
+                                </td>
+                                <td>
+                                    <t t-esc="iterator_ent0.customer.name" />
+                                </td>
+                                <td>
+                                    <t t-esc="iterator_ent0.date" />
+                                </td>
+                                <td>
+                                    <t t-esc="iterator_ent0.type" />
+                                </td>
+                                <td>
+                                    <t t-esc="iterator_ent0.bool" />
+                                </td>
+
+                                <!-- <td>
+                                    LOGICA CREADA EN EL FRONT
+                                    <t t-if="iterator_ent0.bool_yes == iterator_ent0.bool_no">
+                                        <b>INVALID:</b>
+                                        <t t-if="iterator_ent0.bool_yes == True">
+                                            YES AND NO
+                                        </t>
+                                        <t t-else="iterator_ent0.bool_yes == False">
+                                            NO RESPONSE
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <b>VALID:</b>
+                                        <t t-if="iterator_ent0.bool_yes == False">
+                                            NO!
+                                        </t>
+                                        <t t-else="">
+                                            YES!
+                                        </t>
+                                    </t>
+                                </td> -->
+
+
+                                <td>
+                                    <!-- IMPORTANT THIS IS HOW TO CAST IMAGES FROM object[bytes] -->
+
+                                    <img t-attf-src="data:image/jpg;base64,{{ iterator_ent0.image }}" style="align:center; width:85px;height:85px;" alt="NO IMG SET" />
+                                </td>
+
+                                <td>
+                                    <a t-attf-href="/ent0_description?id=#{iterator_ent0.id}">
+                                        <i class="fa fa-glasses" />
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a t-attf-href="/ent0_update?id=#{iterator_ent0.id}">
+                                        <i class="fa fa-pencil" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <a t-attf-href="/ent0_delete?id=#{iterator_ent0.id}">
+                                        <i class="fa fa-trash" />
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </t>
+                </table>
+
+                <!-- CARDS -->
+                <t t-foreach="ent0_all" t-as="iterator_ent0">
+                    <div class="card" style="width: 18rem;">
+                        <!--[IMPORTANT] IF I HAVE THE IMAGE IN LOCAL STORE I COULD USE THE SRC ATTRIBUTE AS REGULAR -->
+                        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                        <img t-attf-src="data:image/jpg;base64,{{ iterator_ent0.image }}" style="align:center; width:85px;height:85px;" alt="NO IMG SET" />
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <t t-esc="iterator_ent0.name" />
+                            </h5>
+                            <p class="card-text">
+                                <t t-esc="iterator_ent0.bool" />
+                            </p>
+                            <a t-attf-href="/ent0_delete?id=#{iterator_ent0.id}" class="btn btn-primary">DELETE</a>
+                            <a t-attf-href="/ent0_description?id=#{iterator_ent0.id}" class="btn btn-primary">DETAILS</a>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+</odoo>

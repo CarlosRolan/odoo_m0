@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_inherit" inherit_id="portal.portal_my_home" name="Portal My Home Inherit Website">
+        <xpath expr="//h3" position="replace">
+            <h3>Hello from the Portal My Home Inheritence</h3>
+        </xpath>
+    </template>
+
+</odoo>

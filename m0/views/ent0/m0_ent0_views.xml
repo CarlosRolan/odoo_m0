@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- TREE -->
+        <record id="m0_ent0_view_tree" model="ir.ui.view">
+            <field name="name">m0.ent0.view.tree</field>
+            <field name="model">m0.ent0</field>
+            <field name="arch" type="xml">
+                <tree string="Ent0">
+                    <!-- [IMPORTANT] This button will be visible when the user selects a record from the tree view -->
+                    <header>
+                        <button name="go_to_front" type="object" class="BTN-PRIMARY" string="GO TO" />
+                    </header>
+                    <field name="customer" />
+                    <field name="name" />
+                    <field name="type" />
+                    <field name="date" />
+                    <field name="bool" />
+                    <!-- <button name="f_create" type="object" class="oe_highlight" string="CREATE" /> -->
+                    <button name="f_update" type="object" class="oe_highlight" string="EDIT" />
+                    <button name="f_delete" type="object" class="oe_highlight" string="DELETE" />
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- FORM -->
+        <record id="m0_ent0_view_form" model="ir.ui.view">
+            <field name="name">m0.ent0.view.form</field>
+            <field name="model">m0.ent0</field>
+            <field name="arch" type="xml">
+                <form string="Ent0">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_state" type="object" class="oe_stat_button" string="Change boolean value" icon="fa-play-circle" />
+                        </div>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="customer" />
+                                <field name="date" />
+                                <field name="type" />
+                            </group>
+                            <group name="group_right">
+                                <field name="name" />
+                                <field name="bool" />
+                                <!--[IMPORTANT] WIDGET IS NECESARY TO RENDER DE FIELD AS AN IMG_FIELD -->
+                                <field name="image" widget="image" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- KANBAN -->
+        <record id="m0_ent0_view_kanban" model="ir.ui.view">
+            <field name="name">view.m0.ent0.view.kanban</field>
+            <field name="model">m0.ent0</field>
+            <field name="arch" type="xml">
+                <kanban class="o_m0_ent0_kanban">
+                    <field name="id" />
+                    <field name="name" />
+                    <field name="customer" />
+                    <field name="date" />
+                    <field name="type" />
+                    <templates>
+                        <!-- kanban_image('model_name', 'field_todisplay', odoo_identifier -->
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt="Avatar"
+                                        t-att-src="kanban_image('m0.ent0', 'image', record.id.raw_value)" />
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"></field>
+                                        <field name="customer"></field>
+                                    </strong>
+                                    <div t-if="record.date.value">
+                                        <t t-esc="record.date.value" />
+                                    </div>
+                                    <div t-if="record.type.value">
+                                        <t t-esc="record.type.value" />
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- SEARCH -->
+        <record id="m0_ent0_view_search" model="ir.ui.view">
+            <field name="name">view.m0.ent0.view.search</field>
+            <field name="model">m0.ent0</field>
+            <field name="arch" type="xml">
+                <search string="Filter Ent0">
+                    <field name="name"/>
+                    <field name="customer"/>
+                    <field name="type"/>
+                    <group expand="0" string="Group By">
+                        <!-- domain = muestra  -->
+                        <filter name="groupby_type" string="Type" domain="[]" context="{'group_by': 'type'}" help="Group by Type" />
+                        <filter name="groupby_dare" string="Date" domain="[]" context="{'group_by': 'date'}" help="Group by Date"/>
+                    </group>
+                    <filter name="filter_by_done" string="Checked" domain="[('bool', '=', 'True')]" help="Checked records" />
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- TREE -->
+        <record id="m0_ent1_view_tree" model="ir.ui.view">
+            <field name="name">m0.ent1.view.tree</field>
+            <field name="model">m0.ent1</field>
+            <field name="arch" type="xml">
+                <tree string="Ent1">
+                    <field name="name" />
+                    <field name="bool_white"/>
+                    <field name="bool_black"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- FORM -->
+        <record id="m0_ent1_view_form" model="ir.ui.view">
+            <field name="name">view.m0.ent1.form</field>
+            <field name="model">m0.ent1</field>
+            <field name="arch" type="xml">
+                <form string="Ent1">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name" />
+                            </group>
+                            <group name="group_right">
+                                <field name="bool_white" />
+                                <field name="bool_black" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

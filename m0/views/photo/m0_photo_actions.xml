@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_view_m0_photo" model="ir.actions.act_window">
+            <field name="name">Action [PHOTOs]</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">m0.photo</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Entities of model[photo]
+                </p>
+                <p>
+                    Click Add new Photo
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

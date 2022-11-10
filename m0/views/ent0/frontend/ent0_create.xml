@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ent0_create" name="ENT0 CREATE">
+        <t t-call="website.layout">
+            <div class="container">
+                <h2>ENT0 FORM CREATE</h2>
+                <form action="/ent0_created" method="POST" enctype="multipart/form-data">
+                    <!-- [IMPORTANT] NEEDED FOR THE TOKEN - BETTER TO BE HIDDEN (OBVIUS) -->
+                    <!-- ALL IS PREDEFINED IN ODOO -->
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <label for="name" class="col-sn-12 col-form-label">Name</label>
+                            <input type="text" class="form-control" name="name" />
+                        </div>
+                    </div>
+
+                    <!-- TO GET THE TYPES OF res.partner -->
+                    <t t-set="partners_requested" t-value="request.env['res.partner'].search([])" />
+
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <!-- Partner in the res.partner = customer in ent0 model -->
+                            <!-- We can do this in the controllers as well -->
+                            <!-- [IMPORTANT]  option t-att-value NO:t-attf-value-->
+                            <label for="customer" class="col-sn-12 col-form-label">Customer</label>
+                            <select class="form-control" name="customer">
+                                <t t-foreach="partners_requested" t-as="iterator_partner">
+                                    <option t-att-value="iterator_partner.id">
+                                        <t t-esc="iterator_partner.name" />
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <label for="date" class="col-sn-12 col-form-label">Date</label>
+                            <input type="date" class="form-control" name="date" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <label for="type" class="col-sn-12 col-form-label">Type</label>
+                            <!-- [IMPORTANT] Look at the structure of the selection -->
+                            <select class="form-control" name="type">
+                                <option t-attf-value="T0">Type0</option>
+                                <option t-attf-value="T1">Type1</option>
+                                <option t-attf-value="T2">Type2</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <label for="bool" class="col-sn-12 col-form-label">Boolean Variable Checked</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="bool" />
+                                <span class="form-check-label" for="bool">is Checked?</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TODO PREGUNTAR POR ESTO DE LAS VARIABLES BOOLEANAS
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <label for="bool_yes" class="col-sn-12 col-form-label">Boolean Variable Radio Button </label>
+                            <div class="form-check">
+                                Same name for only letting the user select one of them
+                                <input class="form-check-input" type="radio" name="bool_yes" />
+                                <span class="form-check-label" for="bool_yes">Yes</span>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="bool_no" />
+                                <span class="form-check-label" for="bool_no">No</span>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="form-group row">
+
+                        <div class="col-sn-10">
+                            <label for="file" class="col-sn-12 col-form-label">Choose a image</label>
+                            <input type="file" name="image" accept="image,application/pdf" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sn-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </t>
+
+    </template>
+
+
+</odoo>

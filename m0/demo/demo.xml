@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record id="entity_demos" model="m0.ent0">
+            <field name="name">Demo ent0</field>
+            <field name="customer">Demo customer</field>
+            <field name="customer">2020-0-01</field>
+            <field name="type">P</field>
+            <field name="bool">1</field>
+        </record>
+    </data>
+</odoo>

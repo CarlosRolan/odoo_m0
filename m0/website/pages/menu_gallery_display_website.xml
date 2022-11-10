@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="menu_gallery_display_website" model="website.menu">
+            <field name="name">Gallery</field>
+            <field name="url">/gallery_display</field>
+            <field name="sequence" type="int">50</field>
+        </record>
+
+    </data>
+</odoo>

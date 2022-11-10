@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+m0_ent0,m0_ent0,model_m0_ent0,base.group_user,1,1,1,1
+m0_ent1,m0_ent1,model_m0_ent1,base.group_user,1,1,1,1
+m0_gallery,m0_gallery,model_m0_gallery,base.group_user,1,1,1,1
+m0_photo,m0_photo,model_m0_photo,base.group_user,1,1,1,1
+

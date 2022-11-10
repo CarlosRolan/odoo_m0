@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_extended_sale_order_form" model="ir.ui.view">
+            <field name="name">view.extended.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <!--[IMPORTANT] HERE WE NEED TO KNWO THE ID OF THE VIEW WE WANTED TO EXTEND = EXTERNAL_ID-->
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="extended_field"></field>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
